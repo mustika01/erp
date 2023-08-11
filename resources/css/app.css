@@ -1,0 +1,12 @@
+@import url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/inter.min.css');
+@import url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/jetbrains-mono.min.css');
+
+@import '../../vendor/filament/forms/dist/module.esm.css';
+@import '../../vendor/saade/filament-fullcalendar/dist/filament-fullcalendar.css';
+
+@import 'tippy.js/dist/tippy.css';
+@import 'tippy.js/themes/light.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'utilities/checked-group';

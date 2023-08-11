@@ -1,0 +1,61 @@
+import:
+  - recipe/laravel.php
+  - contrib/npm.php
+
+config:
+  application: 'erp.lbn.co.id'
+  repository: 'git@gitlab.com:1client/lintas-bahari-nusantara/erp.lbn.co.id.git'
+  branch: main
+  remote_user: forge
+  base_deploy_path: '/home/forge'
+
+hosts:
+  production:
+    hostname: crown.hostname.id
+    deploy_path: '{{base_deploy_path}}/{{application}}'
+  # erp:
+  #   hostname: crown.hostname.id
+  #   deploy_path: '{{base_deploy_path}}/erp.apps.solos.dev'
+  # sgp:
+  #   hostname: crown.hostname.id
+  #   deploy_path: '{{base_deploy_path}}/erp.sgp.co.id'
+
+tasks:
+  deploy:
+    - deploy:prepare
+    - deploy:vendors
+    - artisan:view:clear
+    - artisan:cache:clear
+    - artisan:storage:link
+    - artisan:config:cache
+    - artisan:route:cache
+    - artisan:view:cache
+    - artisan:event:cache
+    - airdrop:download
+    - npm:install
+    - npm:run:prod
+    - airdrop:upload
+    - deploy:publish
+    - artisan:queue:restart
+  migrate:
+    - artisan:down
+    - artisan:migrate
+    - kyoka:bootstrap
+    - kyoka:init-system-user
+    - kiosk:init-ticket-categories
+    - artisan:up
+  kyoka:bootstrap:
+    - run: 'cd {{release_or_current_path}} && php artisan kyoka:bootstrap'
+  kyoka:init-system-user:
+    - run: 'cd {{release_or_current_path}} && php artisan kyoka:init-system-user'
+  kiosk:init-ticket-categories:
+    - run: 'cd {{release_or_current_path}} && php artisan kiosk:init-ticket-categories'
+  airdrop:download:
+    - run: 'cd {{release_or_current_path}} && php artisan airdrop:download'
+  airdrop:upload:
+    - run: 'cd {{release_or_current_path}} && php artisan airdrop:upload'
+  npm:run:prod:
+    - run: 'cd {{release_or_current_path}} && npm run prod'
+
+after:
+  deploy:failed: deploy:unlock

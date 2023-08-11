@@ -1,0 +1,25 @@
+{
+    "name": "kumi/engo",
+    "description": "The list of packages that are required for the project.",
+    "require": {
+        "filament/spatie-laravel-media-library-plugin": "^2.0",
+        "filament/spatie-laravel-settings-plugin": "^2.0",
+        "flowframe/laravel-trend": "^0.1.1",
+        "guzzlehttp/guzzle": "^7.2",
+        "lorisleiva/laravel-actions": "^2.4",
+        "maatwebsite/excel": "^3.1",
+        "ryangjchandler/blade-capture-directive": "^0.2.2",
+        "saade/filament-fullcalendar": "^1.6",
+        "sammyjo20/saloon-laravel": "^1.4",
+        "spatie/browsershot": "^3.57",
+        "spatie/eloquent-sortable": "^4.0",
+        "spatie/laravel-medialibrary": "^10.3",
+        "spatie/laravel-model-states": "^2.4",
+        "spatie/laravel-ray": "^1.31",
+        "spatie/laravel-settings": "^2.4",
+        "spatie/pdf-to-image": "^2.2"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

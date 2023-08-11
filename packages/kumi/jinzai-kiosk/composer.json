@@ -1,0 +1,127 @@
+{
+    "name": "kumi/jinzai-kiosk",
+    "authors": [
+        {
+            "name": "Joni Chandra",
+            "email": "jonquihote@gmail.com",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^2.0",
+        "illuminate/contracts": "^9.0",
+        "kumi/engo": "@dev",
+        "kumi/kanshi": "@dev",
+        "kumi/kanri": "@dev",
+        "kumi/tobira-kyoka-kensa": "@dev",
+        "spatie/laravel-package-tools": "^1.9.2",
+        "squirephp/countries-en": "^3.3"
+    },
+    "require-dev": {
+        "brianium/paratest": "^6.4",
+        "nunomaduro/collision": "^6.0",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^7.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kumi\\": "src",
+            "Kumi\\Jinzai\\Database\\Factories\\": "database/factories/Jinzai",
+            "Kumi\\Jinzai\\Database\\Seeders\\": "database/seeders/Jinzai",
+            "Kumi\\Kiosk\\Database\\Factories\\": "database/factories/Kiosk",
+            "Kumi\\Kiosk\\Database\\Seeders\\": "database/seeders/Kiosk"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kumi\\Jinzai\\Tests\\": "tests/Jinzai",
+            "Kumi\\Kiosk\\Tests\\": "tests/Jinzai",
+            "Kumi\\AbstractJinzaiKiosk\\Tests\\": "tests/AbstractJinzaiKiosk"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kumi\\Jinzai\\JinzaiServiceProvider",
+                "Kumi\\Kiosk\\KioskServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./../engo",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./../kanshi",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./../tobira-kyoka-kensa",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./../kanri",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./../sousa",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./../norikumi",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./../keiri",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./../zaimu",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}

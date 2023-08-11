@@ -1,0 +1,9 @@
+.peer:checked ~ .peer-checked\:checked-group {
+    .checked-group.label {
+
+    }
+
+    .checked-group.description {
+        @apply text-primary-500;
+    }
+}

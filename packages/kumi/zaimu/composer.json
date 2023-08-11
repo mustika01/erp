@@ -1,0 +1,86 @@
+{
+    "name": "kumi/zaimu",
+    "authors": [
+        {
+            "name": "Joni Chandra",
+            "email": "jonquihote@gmail.com",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^2.0",
+        "illuminate/contracts": "^9.0",
+        "kumi/engo": "@dev",
+        "kumi/jinzai-kiosk": "@dev",
+        "kumi/kanshi": "@dev",
+        "kumi/tobira-kyoka-kensa": "@dev",
+        "spatie/laravel-package-tools": "^1.9.2"
+    },
+    "require-dev": {
+        "brianium/paratest": "^6.4",
+        "nunomaduro/collision": "^6.0",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^7.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kumi\\Zaimu\\": "src",
+            "Kumi\\Zaimu\\Database\\Factories\\": "database/factories",
+            "Kumi\\Zaimu\\Database\\Seeders\\": "database/seeders"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kumi\\Zaimu\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kumi\\Zaimu\\ZaimuServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./../engo",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./../kanshi",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./../tobira-kyoka-kensa",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}
